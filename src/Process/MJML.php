@@ -66,8 +66,8 @@ class MJML
     public function renderHTML()
     {
         if (! $this->compiledPath) {
-            $this->renderPath = tempnam(sys_get_temp_dir(), 'mjml_render_') . '.mjml';
-            $this->compiledPath = tempnam(sys_get_temp_dir(), 'mjml_compiled_') . '.php';
+            $this->renderPath = tempnam(sys_get_temp_dir(), 'mjml_render_');
+            $this->compiledPath = tempnam(sys_get_temp_dir(), 'mjml_compiled_');
 
             File::put($this->renderPath, $this->view->render());
 
