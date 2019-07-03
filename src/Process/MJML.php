@@ -24,7 +24,12 @@ class MJML
     /**
      * @var string
      */
-    protected $path;
+    protected $renderPath;
+
+    /**
+     * @var string
+     */
+    protected $compiledPath;
 
     /**
      * MJML constructor.
@@ -34,7 +39,6 @@ class MJML
     public function __construct($view)
     {
         $this->view = $view;
-        $this->path = storage_path('framework/views/' . sha1($this->view->getPath()) . '.php');
     }
 
     /**
@@ -46,7 +50,7 @@ class MJML
     {
         return implode(' ', [
             config('mjml.auto_detect_path') ? $this->detectBinaryPath() : config('mjml.path_to_binary'),
-            $this->path,
+            $this->renderPath,
             '-o',
             $this->compiledPath,
         ]);
@@ -61,14 +65,12 @@ class MJML
      */
     public function renderHTML()
     {
-        $html = $this->view->render();
+        if (! $this->compiledPath) {
+            $this->renderPath = tempnam(sys_get_temp_dir(), 'mjml_render_') . '.mjml';
+            $this->compiledPath = tempnam(sys_get_temp_dir(), 'mjml_compiled_') . '.php';
 
-        File::put($this->path, $html);
+            File::put($this->renderPath, $this->view->render());
 
-        $contentChecksum    = hash('sha256', $html);
-        $this->compiledPath = storage_path("framework/views/{$contentChecksum}.php");
-
-        if (! File::exists($this->compiledPath)) {
             $this->process = new Process($this->buildCmdLineFromConfig());
             $this->process->run();
 
