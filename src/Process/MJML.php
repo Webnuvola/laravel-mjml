@@ -2,7 +2,7 @@
 
 namespace Asahasrabuddhe\LaravelMJML\Process;
 
-use Html2Text\Html2Text;
+use Soundasleep\Html2Text;
 use Illuminate\View\View;
 use Illuminate\Support\HtmlString;
 use Illuminate\Support\Facades\File;
@@ -87,7 +87,7 @@ class MJML
      *
      * @return HtmlString
      *
-     * @throws \Html2Text\Html2TextException
+     * @throws \Soundasleep\Html2TextException
      * @throws \Throwable
      */
     public function renderText()
