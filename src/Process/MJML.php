@@ -71,7 +71,7 @@ class MJML
 
             File::put($this->renderPath, $this->view->render());
 
-            $this->process = new Process($this->buildCmdLineFromConfig());
+            $this->process = Process::fromShellCommandline($this->buildCmdLineFromConfig());
             $this->process->run();
 
             if (! $this->process->isSuccessful()) {
