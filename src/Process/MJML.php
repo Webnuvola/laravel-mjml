@@ -2,7 +2,7 @@
 
 namespace Asahasrabuddhe\LaravelMJML\Process;
 
-use Soundasleep\Html2Text;
+use Html2Text\Html2Text;
 use Illuminate\View\View;
 use Illuminate\Support\HtmlString;
 use Illuminate\Support\Facades\File;
@@ -87,12 +87,10 @@ class MJML
      *
      * @return HtmlString
      *
-     * @throws \Soundasleep\Html2TextException
-     * @throws \Throwable
      */
     public function renderText()
     {
-        return new HtmlString(html_entity_decode(preg_replace("/[\r\n]{2,}/", "\n\n", Html2Text::convert($this->renderHTML())), ENT_QUOTES, 'UTF-8'));
+        return new HtmlString(preg_replace("/[\r\n]{2,}/", "\n\n", (new Html2Text($content))->getText()));
     }
 
     /**
