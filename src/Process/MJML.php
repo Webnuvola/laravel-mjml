@@ -90,7 +90,7 @@ class MJML
      */
     public function renderText()
     {
-        return new HtmlString(preg_replace("/[\r\n]{2,}/", "\n\n", (new Html2Text($content))->getText()));
+        return new HtmlString(preg_replace("/[\r\n]{2,}/", "\n\n", (new Html2Text($this->renderHTML()))->getText()));
     }
 
     /**
