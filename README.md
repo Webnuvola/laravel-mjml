@@ -22,7 +22,7 @@ class TestMail extends Mailable
      */
     public function build(): void
     {
-        return $this->mjml('emails.orders.shipped', [
+        $this->mjml('emails.orders.shipped', [
             'order' => $order,
         ]);
     }
