@@ -38,13 +38,6 @@
     "scripts": {
         "test": "pest"
     },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Webnuvola\\Laravel\\Mjml\\ServiceProvider"
-            ]
-        }
-    },
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
