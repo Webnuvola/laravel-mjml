@@ -53,10 +53,6 @@ This package uses [`spatie/mjml-php`](https://github.com/spatie/mjml-php) under 
 composer test
 ```
 
-## Changelog
-
-Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
-
 ## Credits
 
 - [Fabio Cagliero](https://github.com/fab120)
