@@ -1,6 +1,6 @@
 <?php
 
-use \Webnuvola\Laravel\Mjml\Tests\TestCase;
+use Webnuvola\Laravel\Mjml\Tests\TestCase;
 
 /*
 |--------------------------------------------------------------------------

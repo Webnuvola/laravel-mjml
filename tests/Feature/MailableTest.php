@@ -7,7 +7,7 @@ class MjmlTestMail extends Mailable
     public function build(): void
     {
         $this->mjmlContent(
-            <<<EOF
+            <<<'EOF'
             <mjml>
                 <mj-body>
                     <mj-section>

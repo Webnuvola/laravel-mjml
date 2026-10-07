@@ -12,6 +12,7 @@ use Spatie\Mjml\Mjml;
  * Mailable class.
  *
  * Inspired from asahasrabuddhe/laravel-mjml
+ *
  * @see https://github.com/asahasrabuddhe/laravel-mjml
  */
 class Mailable extends IlluminateMailable
